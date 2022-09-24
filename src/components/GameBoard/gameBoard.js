@@ -18,6 +18,8 @@ const GameBoard =() => {
         if(!localData || localData?.length === 0){
             fetAllQuestionsAsync()
         }
+
+        allQuestions ?? console.log("ok" )
     })
 
     const handleClick = (e) => {
