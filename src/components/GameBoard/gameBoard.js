@@ -6,7 +6,6 @@ import BasicSelector from "../../helpers/form-helper/basicSelector";
 const GameBoard =() => {
     const [base, setBase] = useState('iman')
     const [level, setLevel] = useState(100)
-    const [ids, setIds] = useState([])
     const [question, setQuestion] = useState(null)
     const [answer, setAnswer] = useState(null)
     const [error, setError] = useState(null)
@@ -24,6 +23,8 @@ const GameBoard =() => {
 
     const handleClick = (e) => {
         setError(null)
+        setQuestion(null)
+        setAnswer(null)
         console.log(e.target.name)
         if(e.target.name === 'level'){
             setLevel(e.target.value)
@@ -43,17 +44,14 @@ const GameBoard =() => {
     }
 
     const handleSubmit = async () => { 
+        let ids = localStorage.getItem(base)
         let data = await fetchAQuestionByBaseAndLevel(base, level, ids)
         if(data.success){
             if(!data.data){
                 setError("No data found")
             } else {
-                setIds(prev => {
-                    console.log({prev})
-                    let updatedIds = [...prev, data.data?.id]
-                    localStorage.setItem(base, updatedIds)
-                    return updatedIds
-                })
+                let updatedIds = [...ids, data.data?.id]
+                localStorage.setItem(base, updatedIds)                
                 setQuestion(data.data.question)
                 setAnswer(data.data.answer)
             }
