@@ -1,0 +1,70 @@
+.game-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .selection-container{
+        width: 400px;
+        height: 200px;
+        box-shadow: 3px 3px 30px rgb(68, 25, 25);
+        border-radius: 5px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .choice-title{
+            font-size: 20px;
+            padding: 10px 0;
+        }
+    
+        .game-board-form-container{
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            label{
+                display: flex;
+                font-size: 20px;
+                justify-content: space-between;
+                align-items: center;
+
+                span{
+                    margin: 10px 0;
+                }
+            }
+            input {
+                width: 200px;
+                font-size: 25px;
+                background-color: aliceblue;
+                border-radius: 5px;
+                margin-top: 20px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .question-answer-box{
+        margin: 30px;
+        padding: 20px;
+        min-height: 200px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        font-size: 20px;
+        h1{
+            margin: 10px 0;
+        }
+        input{
+            width: 200px;
+            padding: 5px;
+            font-size: 20px;
+            background-color: aqua;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    }
+}

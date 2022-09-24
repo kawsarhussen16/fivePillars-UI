@@ -1,14 +1,13 @@
 import { useEffect } from "react";
+import "./home.scss"
 
 
-const GameBoard =() => {
-    useEffect(()=>{
-        console.log("Home screen")
-    })
+const HomeBoard =() => {
+    useEffect(()=> {})
 
     return (
-        <div>Home Screen</div>
+        <h1 className="title">Five Pillars of Islam Learning Session</h1>
     )
 }
 
-export default GameBoard
+export default HomeBoard

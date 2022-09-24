@@ -1,13 +1,14 @@
 import React from 'react';
-import { Counter } from './features/counter/Counter';
 import './App.css';
+import Home from "./components/Home";
+import GameBoard from './components/GameBoard/gameBoard';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Counter />
-      </header>
+    <div className="app-container">
+        <Home />
+        <GameBoard  />
     </div>
   );
 }
