@@ -25,7 +25,6 @@ const GameBoard =() => {
         setError(null)
         setQuestion(null)
         setAnswer(null)
-        console.log(e.target.name)
         if(e.target.name === 'level'){
             setLevel(e.target.value)
         } else if(e.target.name === 'base') {
@@ -40,18 +39,18 @@ const GameBoard =() => {
     const fetAllQuestionsAsync = async ()=> {
         const data = await fetchAllQuestions()
         setAllQuestions(data)
-        localStorage.setItem("questions", data)
+        localStorage.setItem("questions", JSON.stringify(data))
     }
 
     const handleSubmit = async () => { 
-        let ids = localStorage.getItem(base)
+        let ids = JSON.parse(localStorage.getItem(base)) || []
         let data = await fetchAQuestionByBaseAndLevel(base, level, ids)
         if(data.success){
             if(!data.data){
                 setError("No data found")
             } else {
                 let updatedIds = [...ids, data.data?.id]
-                localStorage.setItem(base, updatedIds)                
+                localStorage.setItem(base, JSON.stringify(updatedIds))                
                 setQuestion(data.data.question)
                 setAnswer(data.data.answer)
             }
